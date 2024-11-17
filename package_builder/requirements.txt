@@ -1,0 +1,99 @@
+--extra-index-url https://forge.frm2.tum.de/simple
+2to3
+argh
+astropy
+autobahn # Required for websocket in LSI correlator vendor library
+backports-abc
+backports.functools-lru-cache
+backports.shutil-get-terminal-size
+certifi
+chardet
+colorama
+contextlib2
+coverage
+cycler
+cython
+decorator
+docutils
+epicscorelibs
+ess-streaming-data-types
+funcsigs
+future
+genie_python[plot]>=15.1.0-rc1  # Ensure we retain the [plot] extras (for matplotlib plotting)
+git+https://github.com/ISISComputingGroup/CaChannel ; platform_system=="Windows"
+git+https://github.com/ISISComputingGroup/lewis
+git+https://github.com/ISISComputingGroup/pcaspy ; platform_system=="Windows"
+gitdb2
+gitpython
+graypy # Used to log genie_python usage statistics to graylog
+h5py
+ibex_bluesky_core
+idna
+ipaddress
+ipython
+ipython-genutils
+jinja2
+json-rpc
+kafka-python
+kiwisolver
+ldap3
+lxml
+markupsafe
+matplotlib
+mock
+mysql-connector-python==8.4.0  # Matches current MySQL version
+nicos-pyctl;platform_system=="Windows"
+numpy
+p4p 
+parameterized
+pathlib2
+pathtools
+pdfrw
+pickleshare
+pillow
+ply
+prompt-toolkit
+protobuf
+psutil
+py4j  # Only needed here for script generator
+pyasn1==0.6.0
+pygments
+pyhamcrest
+pyopengl
+pyparsing
+pyright
+pyserial
+pysnmp-lextudio==5.0.34
+python-dateutil
+python-redmine
+pytz
+pywin32;platform_system=="Windows"
+pyyaml
+pyzmq
+reportlab
+requests
+rsa
+rst2pdf
+ruff
+scandir
+scanf
+scipy
+semantic-version
+setuptools
+simplegeneric
+singledispatch
+smartypants
+smmap2
+snmpsim-lextudio==1.0.5  
+stomp.py
+toml  # Required for NICOS
+traitlets
+twisted # Required for websocket in LSI correlator vendor library
+unidecode
+unittest-xml-reporting
+urllib3
+watchdog
+wcwidth
+wheel
+win-unicode-console
+xmlrunner # Used for running unit tests for the whole of genie python (in the build)
