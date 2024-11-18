@@ -54,7 +54,7 @@ pipeline {
       steps {
         echo "Build Number: ${env.BUILD_NUMBER}"
         lock(resource: PLOCK, inversePrecedence: false) {
-        timeout(time: 120, unit: 'MINUTES') {
+        timeout(time: 300, unit: 'MINUTES') {
         script {
             env.GIT_COMMIT = bat(returnStdout: true, script: '@git rev-parse HEAD').trim()
             env.GIT_BRANCH = bat(returnStdout: true, script: '@git rev-parse --abbrev-ref HEAD').trim()
