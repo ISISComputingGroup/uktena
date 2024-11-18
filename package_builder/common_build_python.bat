@@ -33,6 +33,7 @@ if not "%ICP_CONFIG_ENV_BASE_RUN%" == "" (
 
 REM Copy in genie_python.bat
 copy %~dp0\genie_python.bat %PYTHONDIR%\.
+copy %~dp0\genie_python3.bat %PYTHONDIR%\.
 copy %~dp0\genie_python_main.bat %PYTHONDIR%\.
 copy %~dp0\genie_python_simulate.bat %PYTHONDIR%\.
 copy %~dp0\get_isis_ip.bat %PYTHONDIR%\.
