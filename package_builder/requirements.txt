@@ -19,7 +19,7 @@ epicscorelibs
 ess-streaming-data-types
 funcsigs
 future
-genie_python[plot]>=15.1.0-rc1  # Ensure we retain the [plot] extras (for matplotlib plotting)
+genie_python[plot]  # Ensure we retain the [plot] extras (for matplotlib plotting)
 git+https://github.com/ISISComputingGroup/CaChannel ; platform_system=="Windows"
 git+https://github.com/ISISComputingGroup/lewis
 git+https://github.com/ISISComputingGroup/pcaspy ; platform_system=="Windows"
