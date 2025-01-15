@@ -41,7 +41,7 @@ lxml
 markupsafe
 matplotlib
 mock
-mysql-connector-python==9.1.0
+mysql-connector-python==8.4.0  # Matches current MySQL version
 nicos-pyctl;platform_system=="Windows"
 numpy
 p4p 
