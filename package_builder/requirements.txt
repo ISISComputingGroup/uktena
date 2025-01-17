@@ -21,7 +21,7 @@ funcsigs
 future
 genie_python[plot]>=15.1.0-rc1  # Ensure we retain the [plot] extras (for matplotlib plotting)
 git+https://github.com/ISISComputingGroup/CaChannel ; platform_system=="Windows"
-git+https://github.com/ISISComputingGroup/lewis
+lewis
 git+https://github.com/ISISComputingGroup/pcaspy ; platform_system=="Windows"
 gitdb2
 gitpython

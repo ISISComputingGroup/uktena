@@ -50,7 +50,7 @@ set "PYTHONHOME=%PYDIR%"
 
 REM re-install lewis so lewis-control.exe can be used (currently it bakes in the build server Python path) see https://github.com/ISISComputingGroup/IBEX/issues/6256
 REM hotfix needed in lewis for https://github.com/ISISComputingGroup/IBEX/issues/6177 and https://github.com/ess-dmsc/lewis/pull/293
-%PYDIR%\python.exe -m pip install --force-reinstall git+https://github.com/ISISComputingGroup/lewis
+%PYDIR%\python.exe -m pip install --force-reinstall lewis
 
 REM create a default ipython_config
 call %BASEDIR%\create_ipython_config.bat %PYDIR%
