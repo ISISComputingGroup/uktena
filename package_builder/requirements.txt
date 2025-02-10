@@ -1,4 +1,3 @@
---extra-index-url https://forge.frm2.tum.de/simple
 2to3
 argh
 astropy
@@ -42,7 +41,7 @@ markupsafe
 matplotlib
 mock
 mysql-connector-python==8.4.0  # Matches current MySQL version
-nicos-pyctl;platform_system=="Windows"
+git+https://github.com/mlz-ictrl/nicos-pyctl@f9a017aeecf1da00f89069f35b381f0ac985ebb8 ; platform_system=="Windows"
 numpy
 p4p 
 parameterized
