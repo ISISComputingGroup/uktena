@@ -54,6 +54,8 @@ ply
 prompt-toolkit
 protobuf
 psutil
+# for pvxslibs used by p4p
+git+https://github.com/ISISComputingGroup/EPICS-pvxs
 py4j  # Only needed here for script generator
 pyasn1==0.6.0
 pygments
