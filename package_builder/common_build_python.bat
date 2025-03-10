@@ -79,10 +79,10 @@ del /f /q %~dp0\pip_requirements.log
 %PYTHON% -m ensurepip
 if %errorlevel% neq 0 exit /b %errorlevel%
 
-%PYTHON% -m pip install --cache-dir %~dp0\.pip_cache --upgrade pip --log %~dp0\pip_upgrade.log
+%PYTHON% -m pip install --cache-dir %~dp0\.pip_cache --upgrade pip setuptools --log %~dp0\pip_upgrade.log
 if %errorlevel% neq 0 exit /b %errorlevel%
 
-%PYTHON% -m pip install --cache-dir %~dp0\.pip_cache -r %~dp0\requirements.txt --no-warn-script-location --log %~dp0\pip_requirements.log
+%PYTHON% -m pip install --verbose --cache-dir %~dp0\.pip_cache -r %~dp0\requirements.txt --no-warn-script-location --log %~dp0\pip_requirements.log
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 cd %~dp0
