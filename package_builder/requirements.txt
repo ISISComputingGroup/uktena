@@ -29,7 +29,7 @@ h5py
 ibex_bluesky_core
 idna
 ipaddress
-ipython
+ipython<9.0.0
 ipython-genutils
 jinja2
 json-rpc
