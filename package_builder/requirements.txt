@@ -18,7 +18,7 @@ epicscorelibs
 ess-streaming-data-types
 funcsigs
 future
-genie_python[plot]  # Ensure we retain the [plot] extras (for matplotlib plotting)
+genie_python[plot] @ git+https://github.com/ISISComputingGroup/genie@Ticket8597  # Ensure we retain the [plot] extras (for matplotlib plotting)
 git+https://github.com/ISISComputingGroup/CaChannel ; platform_system=="Windows"
 lewis
 git+https://github.com/ISISComputingGroup/pcaspy ; platform_system=="Windows"
@@ -43,11 +43,10 @@ matplotlib
 mock
 mysql-connector-python==8.4.0  # Matches current MySQL version
 git+https://github.com/mlz-ictrl/nicos-pyctl@f9a017aeecf1da00f89069f35b381f0ac985ebb8 ; platform_system=="Windows"
-numpy
+numpy>=2
 p4p
 parameterized
 pathlib2
-pathtools
 pdfrw
 pickleshare
 pillow
@@ -96,4 +95,3 @@ watchdog
 wcwidth
 wheel
 win-unicode-console
-xmlrunner # Used for running unit tests for the whole of genie python (in the build)
