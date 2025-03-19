@@ -22,6 +22,7 @@ genie_python[plot]  # Ensure we retain the [plot] extras (for matplotlib plottin
 git+https://github.com/ISISComputingGroup/CaChannel ; platform_system=="Windows"
 lewis
 git+https://github.com/ISISComputingGroup/pcaspy ; platform_system=="Windows"
+git+https://github.com/ISISComputingGroup/server_common ; platform_system=="Windows"
 gitdb2
 gitpython
 graypy # Used to log genie_python usage statistics to graylog
