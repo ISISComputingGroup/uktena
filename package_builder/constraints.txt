@@ -1,4 +1,3 @@
-CaChannel==3.2.0
 epicscorelibs @ https://github.com/ISISComputingGroup/epicscorelibs/releases/download/epicscorelibs-7.0.7.99.1.2a1-isis/epicscorelibs-7.0.7.99.1.2a1-cp311-cp311-win_amd64.whl
 #epicscorelibs @ git+https://github.com/ISISComputingGroup/epicscorelibs@match_base_flags
 #epicscorelibs==7.0.7.99.1.2a1
