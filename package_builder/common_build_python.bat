@@ -79,6 +79,10 @@ del /f /q %~dp0\pip_requirements.log
 %PYTHON% -m ensurepip
 if %errorlevel% neq 0 exit /b %errorlevel%
 
+setlocal
+
+set "PATH=%PYTHONDIR%\Scripts;%PATH%"
+
 %PYTHON% -m pip install --cache-dir %~dp0\.pip_cache --upgrade pip --log %~dp0\pip_upgrade.log
 if %errorlevel% neq 0 exit /b %errorlevel%
 

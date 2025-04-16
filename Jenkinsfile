@@ -113,6 +113,7 @@ pipeline {
                 unstableOnWarning: false,
                 useProjectRule: true,
             ])
+        archiveArtifacts artifacts: 'package_builder/*.log', caseSensitive: false
     }
   }
 }
