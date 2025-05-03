@@ -39,7 +39,7 @@ if exist "%ZIPPROG%" (
 
 @echo %TIME% genie_python robocopy started
 if exist "%BASEDIR%\Python\ZIP_ONLY_INSTALL.txt" (
-    robocopy "%BASEDIR%\Python" "%PYDIR%" /S /R:2 /MT /NFL /NDL /NP /NC /NS /LOG:NUL /XF "ZIP_ONLY_INSTALL.txt"
+    robocopy "%BASEDIR%\Python" "%PYDIR%" /E /R:2 /MT /NFL /NDL /NP /NC /NS /LOG:NUL /XF "ZIP_ONLY_INSTALL.txt"
 ) else (
     robocopy "%BASEDIR%\Python" "%PYDIR%" /MIR /R:2 /MT /NFL /NDL /NP /NC /NS /LOG:NUL
 )
