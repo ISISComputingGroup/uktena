@@ -101,9 +101,16 @@ if not "%KITS_DIR%" == "" (
 	@echo !TIME! End zip
 
 	@echo !TIME! Start network robocopy
-    robocopy "%STAGEDIR%\Python" "%KITS_DIR%\Python" -MIR -NFL -NDL -NP -MT -NC -NS -R:1 -LOG:"robocopy_net_log.txt"
-	if !errorlevel! geq 4 (
-        @echo ERROR: !errorlevel! in robocopy
+    if "%RELEASE%" == "YES" (
+        robocopy "%STAGEDIR%\Python" "%KITS_DIR%\Python" -MIR -NFL -NDL -NP -MT -NC -NS -R:1 -LOG:"robocopy_net_log.txt"
+        set errcode=!errorlevel!
+    ) else (
+        robocopy "%STAGEDIR%\Python" "%KITS_DIR%\Python" BUILD_NUMBER.txt VERSION.txt -MIR -NFL -NDL -NP -MT -NC -NS -R:1 -LOG:"robocopy_net_log.txt"
+        set errcode=!errorlevel!
+        @echo YES>%KITS_DIR%\Python\ZIP_ONLY_INSTALL.txt
+    )
+	if !errcode! geq 4 (
+        @echo ERROR: !errcode! in robocopy
 	    goto ERROR
     )
     @echo !TIME! End network robocopy

@@ -1,4 +1,4 @@
-setlocal
+setlocal EnableDelayedExpansion
 
 set DEFAULT_PATH=C:\Instrument\Apps\Python3
 
@@ -29,12 +29,20 @@ set "ZIPPROG=c:\Program Files\7-Zip\7z.exe"
 if exist "%ZIPPROG%" (
     if exist "%BASEDIR%zips\Python.7z" (
         "%ZIPPROG%" x -aoa -o%PYDIR% "%BASEDIR%zips\Python.7z"
+        set errcode=!errorlevel!
+        if !errcode! gtr 1 (
+            @echo UNZIP error !errcode!
+            exit /b !errcode!
+        )
     )
 )
 
 @echo %TIME% genie_python robocopy started
- 
-robocopy "%BASEDIR%\Python" "%PYDIR%" /MIR /R:2 /MT /NFL /NDL /NP /NC /NS /LOG:NUL
+if exist "%BASEDIR%\Python\ZIP_ONLY_INSTALL.txt" (
+    robocopy "%BASEDIR%\Python" "%PYDIR%" /S /R:2 /MT /NFL /NDL /NP /NC /NS /LOG:NUL /XF "ZIP_ONLY_INSTALL.txt"
+) else (
+    robocopy "%BASEDIR%\Python" "%PYDIR%" /MIR /R:2 /MT /NFL /NDL /NP /NC /NS /LOG:NUL
+)
 set errcode=%errorlevel%
 if %errcode% GEQ 4 (
     @echo ERROR %errcode% in robocopy
