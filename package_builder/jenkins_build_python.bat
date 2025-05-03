@@ -105,7 +105,7 @@ if not "%KITS_DIR%" == "" (
         robocopy "%STAGEDIR%\Python" "%KITS_DIR%\Python" -MIR -NFL -NDL -NP -MT -NC -NS -R:1 -LOG:"robocopy_net_log.txt"
         set errcode=!errorlevel!
     ) else (
-        robocopy "%STAGEDIR%\Python" "%KITS_DIR%\Python" BUILD_NUMBER.txt VERSION.txt -MIR -NFL -NDL -NP -MT -NC -NS -R:1 -LOG:"robocopy_net_log.txt"
+        robocopy "%STAGEDIR%\Python" "%KITS_DIR%\Python" BUILD_NUMBER.txt VERSION.txt -S -NFL -NDL -NP -MT -NC -NS -R:1 -LOG:"robocopy_net_log.txt"
         set errcode=!errorlevel!
         @echo YES>%KITS_DIR%\Python\ZIP_ONLY_INSTALL.txt
     )
