@@ -71,6 +71,8 @@ set PYTHONVERND=%PYTHONVER:.=%
 %ZIPEXE% x "%~dp0\python_deps\python_clean_%PYTHONVER%.%PYTHONPATCH%.zip" -y -o%PYTHONDIR%
 if %errorlevel% neq 0 exit /b %errorlevel%
 
+setlocal
+
 cd %PYTHONDIR%
 
 del /f /q %~dp0\pip_upgrade.log
@@ -78,8 +80,6 @@ del /f /q %~dp0\pip_requirements.log
 
 %PYTHON% -m ensurepip
 if %errorlevel% neq 0 exit /b %errorlevel%
-
-setlocal
 
 set "PATH=%PYTHONDIR%\Scripts;%PATH%"
 
