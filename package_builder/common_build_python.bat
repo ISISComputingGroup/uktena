@@ -64,7 +64,7 @@ if %errorlevel% geq 4 (
 
 set ZIPEXE=C:\"Program Files"\7-Zip\7z.exe
 
-set PYTHONVER=3.11
+set PYTHONVER=3.12
 set PYTHONPATCH=9
 set PYTHONVERND=%PYTHONVER:.=%
 
