@@ -94,16 +94,24 @@ if not "%KITS_DIR%" == "" (
 	@echo !TIME! Start zip
     pushd %STAGEDIR%\Python
     if exist "%STAGEDIR%\%PYZIPTMP%" del "%STAGEDIR%\%PYZIPTMP%"
-    "c:\Program Files\7-Zip\7z.exe" a "%STAGEDIR%\%PYZIPTMP%" . -mx1 -r -xr^^!*-arm.exe -xr^^!*-arm64.exe
+    REM disable method filters to avoid 7zip version mismatch with new ARM64 filter
+    "c:\Program Files\7-Zip\7z.exe" a "%STAGEDIR%\%PYZIPTMP%" . -mx1 -mf=off -r -xr^^!*-arm.exe -xr^^!*-arm64.exe
     set errcode=!errorlevel!
     popd
     if !errcode! gtr 1 exit /b !errcode!
 	@echo !TIME! End zip
 
 	@echo !TIME! Start network robocopy
-    robocopy "%STAGEDIR%\Python" "%KITS_DIR%\Python" -MIR -NFL -NDL -NP -MT -NC -NS -R:1 -LOG:"robocopy_net_log.txt"
-	if !errorlevel! geq 4 (
-        @echo ERROR: !errorlevel! in robocopy
+    if "%RELEASE%" == "YES" (
+        robocopy "%STAGEDIR%\Python" "%KITS_DIR%\Python" -MIR -NFL -NDL -NP -MT -NC -NS -R:1 -LOG:"robocopy_net_log.txt"
+        set errcode=!errorlevel!
+    ) else (
+        robocopy "%STAGEDIR%\Python" "%KITS_DIR%\Python" BUILD_NUMBER.txt VERSION.txt -S -NFL -NDL -NP -MT -NC -NS -R:1 -LOG:"robocopy_net_log.txt"
+        set errcode=!errorlevel!
+        @echo YES>%KITS_DIR%\Python\ZIP_ONLY_INSTALL.txt
+    )
+	if !errcode! geq 4 (
+        @echo ERROR: !errcode! in robocopy
 	    goto ERROR
     )
     @echo !TIME! End network robocopy
