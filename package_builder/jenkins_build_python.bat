@@ -94,7 +94,8 @@ if not "%KITS_DIR%" == "" (
 	@echo !TIME! Start zip
     pushd %STAGEDIR%\Python
     if exist "%STAGEDIR%\%PYZIPTMP%" del "%STAGEDIR%\%PYZIPTMP%"
-    "c:\Program Files\7-Zip\7z.exe" a "%STAGEDIR%\%PYZIPTMP%" . -mx1 -r -xr^^!*-arm.exe -xr^^!*-arm64.exe
+    REM disable method filters to avoid 7zip version mismatch with new ARM64 filter
+    "c:\Program Files\7-Zip\7z.exe" a "%STAGEDIR%\%PYZIPTMP%" . -mx1 -mf=off -r -xr^^!*-arm.exe -xr^^!*-arm64.exe
     set errcode=!errorlevel!
     popd
     if !errcode! gtr 1 exit /b !errcode!
