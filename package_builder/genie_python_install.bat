@@ -39,6 +39,10 @@ if exist "%ZIPPROG%" (
 
 @echo %TIME% genie_python robocopy started
 if exist "%BASEDIR%\Python\ZIP_ONLY_INSTALL.txt" (
+    if not exist "%ZIPPROG%" (
+        @echo ERROR: No 7-ZIP program found for genie_python install
+        exit /b 1
+    )
     robocopy "%BASEDIR%\Python" "%PYDIR%" /E /R:2 /MT /NFL /NDL /NP /NC /NS /LOG:NUL /XF "ZIP_ONLY_INSTALL.txt"
 ) else (
     robocopy "%BASEDIR%\Python" "%PYDIR%" /MIR /R:2 /MT /NFL /NDL /NP /NC /NS /LOG:NUL
@@ -46,10 +50,14 @@ if exist "%BASEDIR%\Python\ZIP_ONLY_INSTALL.txt" (
 set errcode=%errorlevel%
 if %errcode% GEQ 4 (
     @echo ERROR %errcode% in robocopy
-	exit /b %errcode%
+    exit /b %errcode%
 )
 
 @echo %TIME% genie_python robocopy finished
+
+if not exist "%PYDIR%\python.exe" (
+    @echo ERROR: genie_python did not install correctly to %PYDIR%
+)
 
 REM we need to set PYTHONPATH and PYTHONHOME if we plan to run python in this script.
 REM They can get set during a deploy that runs python from the network
