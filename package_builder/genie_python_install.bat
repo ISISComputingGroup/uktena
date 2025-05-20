@@ -57,6 +57,7 @@ if %errcode% GEQ 4 (
 
 if not exist "%PYDIR%\python.exe" (
     @echo ERROR: genie_python did not install correctly to %PYDIR%
+    exit /b 1
 )
 
 REM we need to set PYTHONPATH and PYTHONHOME if we plan to run python in this script.
