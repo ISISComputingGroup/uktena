@@ -1,6 +1,6 @@
 setlocal EnableDelayedExpansion
 
-set DEFAULT_PATH=C:\Instrument\Apps\Python3
+set DEFAULT_PATH=\\?\C:\Instrument\Apps\Python3
 
 REM %~dp0 expands to directory where this file lives
 set BASEDIR=%~dp0
@@ -18,9 +18,9 @@ if "%1" == "" (
 ) else (
     set PYDIR=%1
 )
-if not exist "%PYDIR%" (
-    mkdir %PYDIR%
-)
+
+if exist "%PYDIR%" rd /s /q %PYDIR%
+mkdir %PYDIR%
 
 REM we unzip the archive and then robocopy as before
 REM this is in case there has been a patch to the on-disk files
