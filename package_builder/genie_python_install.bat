@@ -1,6 +1,6 @@
 setlocal EnableDelayedExpansion
 
-set DEFAULT_PATH=\\?\C:\Instrument\Apps\Python3
+set DEFAULT_PATH=C:\Instrument\Apps\Python3
 
 REM %~dp0 expands to directory where this file lives
 set BASEDIR=%~dp0
@@ -20,6 +20,12 @@ if "%1" == "" (
 )
 
 if exist "%PYDIR%" rd /s /q %PYDIR%
+REM try with long path prefix. Note that we haven't added it
+REM directly to PYDIR as we may need to check PYDIR for UNC path and
+REM also robocopy would need /256 flag to stop it adding this prefix itself
+REM and erroring
+if exist "%PYDIR%" rd /s /q "\\.\%PYDIR%"
+
 mkdir %PYDIR%
 
 REM we unzip the archive and then robocopy as before
