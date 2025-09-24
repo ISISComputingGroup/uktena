@@ -1,4 +1,5 @@
 #epicscorelibs @ git+https://github.com/ISISComputingGroup/epicscorelibs@match_base_flags
 #epicscorelibs==7.0.7.99.1.2a1
 epicscorelibs @ https://github.com/ISISComputingGroup/epicscorelibs/releases/download/epicscorelibs-7.0.7.99.1.2a1-isis/epicscorelibs-7.0.7.99.1.2a1-cp312-cp312-win_amd64.whl
+CaChannel @ git+https://github.com/ISISComputingGroup/CaChannel.git
 numpy>=2
