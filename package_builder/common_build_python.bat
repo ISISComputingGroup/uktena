@@ -14,8 +14,6 @@ set PYTHON3W=%PYTHONDIR%\pythonw.exe
 set PYTHOND=%PYTHONDIR%\python_d.exe
 set PYTHON3D=%PYTHONDIR%\python_d.exe
 
-set PIP_CONSTRAINT=%~dp0\constraints.txt
-
 git clean -fqdX %PYTHONDIR%\Lib\
 del /q /f %PYTHONDIR%\*.exe
 del /q /f %PYTHONDIR%\*.dll
@@ -86,7 +84,7 @@ set "PATH=%PYTHONDIR%\Scripts;%PATH%"
 %PYTHON% -m pip install --cache-dir %~dp0\.pip_cache --upgrade pip --log %~dp0\pip_upgrade.log
 if %errorlevel% neq 0 exit /b %errorlevel%
 
-%PYTHON% -m pip install --cache-dir %~dp0\.pip_cache -r %~dp0\requirements.txt --no-warn-script-location --log %~dp0\pip_requirements.log
+%PYTHON% -m pip install -v --cache-dir %~dp0\.pip_cache -r %~dp0\requirements.txt --no-warn-script-location --log %~dp0\pip_requirements.log --constraint %~dp0\constraints.txt --build-constraint %~dp0\constraints.txt
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 cd %~dp0
