@@ -84,6 +84,7 @@ smartypants
 smmap2
 snmpsim-lextudio==1.0.5  
 stomp.py
+telnet3
 toml  # Required for NICOS
 traitlets
 twisted # Required for websocket in LSI correlator vendor library
