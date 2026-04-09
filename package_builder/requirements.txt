@@ -26,7 +26,7 @@ gitpython
 graypy # Used to log genie_python usage statistics to graylog
 h5py
 ibex_bluesky_core
-ibex_non_ca_helpers
+ibex-non-ca-helpers
 idna
 ipaddress
 ipython<9.0.0
