@@ -54,14 +54,15 @@ prompt-toolkit
 protobuf
 psutil
 py4j  # Only needed here for script generator
-pyasn1==0.6.0
+pyasn1
 pygments
 pyhamcrest
 pyopengl
 pyparsing
 pyright
 pyserial
-pysnmp-lextudio==5.0.34
+pysnmp
+pysmi
 python-dateutil
 python-redmine
 pytz
@@ -82,7 +83,7 @@ simplegeneric
 singledispatch
 smartypants
 smmap2
-snmpsim-lextudio==1.0.5  
+snmpsim
 stomp.py
 telnetlib3
 toml  # Required for NICOS
