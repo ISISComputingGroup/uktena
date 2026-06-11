@@ -62,6 +62,7 @@ pyparsing
 pyright
 pyserial
 pysnmp
+git+https://github.com/FreddieAkeroyd/pysnmp-sync-adapter@FreddieAkeroyd-patch-1
 pysmi
 python-dateutil
 python-redmine
