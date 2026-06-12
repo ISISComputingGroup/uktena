@@ -1,30 +1,21 @@
-REM Set release network drive
 @echo off
 setlocal
-@echo on
 
 REM Set directory for Python installation
 cd ..
 set PYTHONDIR=%cd%
 cd %~dp0
 
+for /f "usebackq" %%f in (`tasklist /fi "modules eq python3.dll" ^| findstr /i "image name"`) do (
+    @echo ERROR: Python processes running - please stop these / ibex server
+    tasklist /fi  "modules eq python3.dll"
+    exit /b 1
+)
+
 REM kill caRepeater.exe in case we need to replace it
 taskkill /f /im caRepeater.exe
 
-set PYTHONRUNNING=
-for /f "usebackq" %%f in (`tasklist ^| findstr /i python.exe`) do set PYTHONRUNNING=1
-if not "%PYTHONRUNNING%" == "" (
-    @echo ERROR: Python.exe processes running - please stop these / ibex server
-    tasklist /fi  "IMAGENAME eq python.exe"
-    exit /b 1
-)
-set PYTHONWRUNNING=
-for /f "usebackq" %%f in (`tasklist ^| findstr /i pythonw.exe`) do set PYTHONWRUNNING=1
-if not "%PYTHONWRUNNING%" == "" (
-    @echo ERROR: Pythonw.exe processes running - please stop these / ibex server
-    tasklist /fi  "IMAGENAME eq pythonw.exe"
-    exit /b 1
-)
+@echo on
 
 REM Build Python in the designated directory
 call common_build_python.bat %*
