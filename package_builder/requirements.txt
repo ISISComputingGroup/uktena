@@ -95,3 +95,4 @@ watchdog
 wcwidth
 wheel
 win-unicode-console
+asyncua
